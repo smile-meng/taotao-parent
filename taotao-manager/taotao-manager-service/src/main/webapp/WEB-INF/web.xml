@@ -5,4 +5,14 @@
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
     <display-name>taotao-manager-service</display-name>
+
+    <!--初始化spring容器，目的就是发布服务-->
+    <!-- 加载spring容器 -->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:spring/applicationContext-*.xml</param-value>
+    </context-param>
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
 </web-app>
