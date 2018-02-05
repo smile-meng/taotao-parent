@@ -18,6 +18,9 @@ import java.util.Map;
 @Component(value = "fileUploadToFastDFS")
 public class FileUploadToFastDFS implements FileUpload {
 
+    @Value("${IMAGE_SERVER_URL}")
+    private String IMAGE_SERVER_URL;
+
     @Override
     public Map<String, Object> fileUpload(MultipartFile uploadFile) {
         try {
@@ -33,7 +36,7 @@ public class FileUploadToFastDFS implements FileUpload {
             //创建返回结果对象
             Map result = new HashMap<>();
             result.put("error",0);
-            result.put("url","http://192.168.90.128/"+url);
+            result.put("url",IMAGE_SERVER_URL+url);
             //返回结果
             return result;
         } catch (Exception e) {
